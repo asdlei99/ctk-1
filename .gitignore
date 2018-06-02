@@ -1,0 +1,10 @@
+examples/out/
+docs/private/
+tests/x64/
+tests/Debug/
+tests/Release/
+tests/ARM/
+tests/bin/
+!/tests/bin/DO_NOT_DELETE
+tests/res/private/
+*.vcxproj.user
