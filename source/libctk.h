@@ -95,6 +95,7 @@ typedef ctk_uint32                  ctk_bool32;
 #include <string.h> /* For strcpy() */
 #include <stdarg.h> /* For va_list */
 #include <ctype.h>  /* For toupper() */
+#include <stdio.h>
 #include <stdlib.h>
 
 #if defined(__GNUC__)
@@ -108,6 +109,42 @@ typedef ctk_uint32                  ctk_bool32;
     #endif
 #endif
 
+#ifdef _WIN32
+    #define CTK_WIN32
+#else
+    #define CTK_POSIX
+    #ifdef __linux__
+        #define CTK_LINUX
+    #endif
+#endif
+
+typedef int ctk_result;
+#define CTK_SUCCESS                                      0
+#define CTK_ERROR                                       -1      /* A generic error. */
+#define CTK_INVALID_ARGS                                -2
+#define CTK_INVALID_OPERATION                           -3
+#define CTK_OUT_OF_MEMORY                               -4
+#define CTK_FORMAT_NOT_SUPPORTED                        -5
+#define CTK_OUT_OF_RANGE                                -6
+#define CTK_CANCELLED                                   -7
+#define CTK_INVALID_FILE                                -8
+#define CTK_FAILED_TO_OPEN_FILE                         -9
+#define CTK_FAILED_TO_READ_FILE                         -10
+#define CTK_FAILED_TO_WRITE_FILE                        -11
+#define CTK_FILE_TOO_BIG                                -12
+#define CTK_PATH_TOO_LONG                               -13
+#define CTK_NAME_TOO_LONG                               -14
+#define CTK_DOES_NOT_EXIST                              -15
+#define CTK_ALREADY_EXISTS                              -16
+#define CTK_ACCESS_DENIED                               -17
+#define CTK_TOO_MANY_OPEN_FILES                         -18
+#define CTK_END_OF_FILE                                 -19
+#define CTK_NO_SPACE                                    -20
+#define CTK_NEGATIVE_SEEK                               -21
+#define CTK_TIMEOUT                                     -22
+
+
+
 void* ctk_malloc(size_t sz);
 void* ctk_calloc(size_t count, size_t sz);
 void* ctk_realloc(void* p, size_t sz);
@@ -118,6 +155,10 @@ void  ctk_aligned_free(void* p);
 
 #include "ctk_string.h"
 #include "ctk_cmdline.h"
+#include "ctk_io.h"
+#include "ctk_elf.h"
+#include "ctk_coff.h"
+#include "ctk_pe.h"
 
 /**************************************************************************************************************************************************************
  **************************************************************************************************************************************************************
