@@ -6,6 +6,6 @@ The project is developed across multiple files, but I'm planning on having each 
 a single .h file.
 
 This doesn't do anything useful at the moment, but the ultimate plan is something kind of like LLVM, but not
-as big and cumbersome. Don't expect anything usful out of this for a quite some time.
+as big and cumbersome. Don't expect anything useful out of this for a quite some time.
 
 More soon(-ish).
