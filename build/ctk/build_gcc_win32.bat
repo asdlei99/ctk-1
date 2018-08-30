@@ -1,0 +1,1 @@
+gcc ../../source/bin/ctk.c -o bin/ctk.exe -std=c89 -pedantic -Wall -Wpedantic
