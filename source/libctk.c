@@ -17,13 +17,15 @@
 #include <stdio.h>  /* For sprintf(), etc. */
 #include <assert.h>
 
-/* I couldn't figure out where SIZE_MAX was defined for VC6. If anybody knows, let me know. */
-#if defined(_MSC_VER) && _MSC_VER <= 1200
-#if defined(_WIN64)
-#define SIZE_MAX    ((ctk_uint64)0xFFFFFFFFFFFFFFFF)
+/* Some compilers don't support SIZE_MAX. */
+#if defined(SIZE_MAX)
+    #define CTK_SIZE_MAX    SIZE_MAX
 #else
-#define SIZE_MAX    0xFFFFFFFF
-#endif
+    #if defined(CTK_64BIT)
+        #define CTK_SIZE_MAX    ((ctk_uint64)0xFFFFFFFFFFFFFFFF)
+    #else
+        #define CTK_SIZE_MAX    0xFFFFFFFF
+    #endif
 #endif
 
 #ifndef CTK_MALLOC

@@ -11,6 +11,10 @@ David Reid - davidreidsoftware@gmail.com
 extern "C" {
 #endif
 
+#if defined(_WIN64) || defined(_LP64) || defined(__LP64__)
+#define CTK_64BIT
+#endif
+
 #define CTK_STRINGIFY(x)        #x
 #define CTK_XSTRINGIFY(x)       CTK_STRINGIFY(x)
 

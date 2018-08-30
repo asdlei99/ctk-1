@@ -216,7 +216,7 @@ static ctk_result ctk_open_and_read_file_with_extra_data(const char* filePath, s
     fileSize = ftell(pFile);
     fseek(pFile, 0, SEEK_SET);
 
-    if (fileSize + extraBytes > SIZE_MAX) {
+    if (fileSize + extraBytes > CTK_SIZE_MAX) {
         fclose(pFile);
         return CTK_FILE_TOO_BIG;
     }
